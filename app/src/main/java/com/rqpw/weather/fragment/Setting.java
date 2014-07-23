@@ -1,5 +1,7 @@
 package com.rqpw.weather.fragment;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -196,15 +198,22 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Uri picUri = data.getData();
-        Bitmap bitmap = lessenUriImage(getPath(picUri));
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-        bg_ca.setBackgroundDrawable(bitmapDrawable);
-        bg_da.setBackgroundDrawable(bitmapDrawable);
-        bg_aa.setBackgroundDrawable(bitmapDrawable);
+        if(resultCode == Activity.RESULT_OK){
+            Uri picUri = data.getData();
+            Bitmap bitmap = lessenUriImage(getPath(picUri));
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+            bg_ca.setBackgroundDrawable(bitmapDrawable);
+            bg_da.setBackgroundDrawable(bitmapDrawable);
+            bg_aa.setBackgroundDrawable(bitmapDrawable);
 
-        SettingPreference settingPreference = new SettingPreference(getActivity());
-        settingPreference.saveAppBGPicPath(picUri.toString());
+            SettingPreference settingPreference = new SettingPreference(getActivity());
+            settingPreference.saveAppBGPicPath(picUri.toString());
+        }
+        else{
+            SettingPreference settingPreference = new SettingPreference(getActivity());
+            if(settingPreference.getAppBGPicPath().equals(""))
+                rb_color.setChecked(true);
+        }
     }
 
     @Override
