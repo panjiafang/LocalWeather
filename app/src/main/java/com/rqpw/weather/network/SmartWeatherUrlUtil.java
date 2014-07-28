@@ -18,7 +18,7 @@ public class SmartWeatherUrlUtil {
     private final static String TAG = "WeatherUrlUtil";
     private static final String MAC_NAME = "HmacSHA1";
     private static final String ENCODING = "UTF-8";
-    private static final String appid = "";
+    private static final String appid = "e2b9fd8302e80cbc";
     private static final String private_key = "";
     private static final String url_header="http://webapi.weather.com.cn/data/?";
 
