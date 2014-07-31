@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText android:id="@+id/view_adding_et"
+    <AutoCompleteTextView android:id="@+id/view_adding_et"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:hint="City Info"
         android:textSize="14dp"
         android:singleLine="true"
+        android:dropDownHeight="280dp"
         android:layout_toLeftOf="@+id/view_adding_tv"
         />
 

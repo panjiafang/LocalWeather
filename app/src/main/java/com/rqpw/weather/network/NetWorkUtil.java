@@ -58,7 +58,7 @@ public class NetWorkUtil {
     }
 
     public static String getWeatherInfo(String q){
-        String url = "http://api.worldweatheronline.com/free/v1/weather.ashx?q="+q+"&format=json&extra=localObsTime&num_of_days=5&key=ca88095da564000cba0ba6d0356dcd0c8cecc061";
+        String url = SmartWeatherUrlUtil.getInterfaceURL("101010100", "observe");
         return Conn2Server(url);
     }
 

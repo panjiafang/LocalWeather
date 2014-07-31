@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:minHeight="48dp"
+    >
+
+    <com.rqpw.weather.view.MarQueeTextView android:id="@+id/item_autocompleteview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="15dp"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="1"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

@@ -1,9 +1,16 @@
 package com.rqpw.weather.util;
 
+import android.util.Log;
+
 /**
  * Created by Pan Jiafang on 2014/7/23.
  */
 public class Utils {
+
+    public static void Log(String message){
+        Log.e("pw", message);
+    }
+
     public static String unicodeToUtf8(String theString) {
         char aChar;
         int len = theString.length();

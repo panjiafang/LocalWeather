@@ -21,15 +21,22 @@ import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.rqpw.weather.db.CityPreference;
+import com.rqpw.weather.db.DBHelper;
+import com.rqpw.weather.entity.CityEntity;
 import com.rqpw.weather.fragment.Setting;
 import com.rqpw.weather.fragment.Weather;
 import com.rqpw.weather.service.ClearService;
+import com.rqpw.weather.util.Utils;
 import com.rqpw.weather.view.AddingActionView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -54,6 +61,39 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        try {
+            DBHelper dbHelper = DBHelper.getInstance(this);
+            if(!dbHelper.hasCity()){
+                Utils.Log("read assets file");
+                InputStream is = getAssets().open("result.csv");
+                InputStreamReader isr = new InputStreamReader(is, "gbk");
+                BufferedReader br = new BufferedReader(isr);
+                String str;
+                String[] strs;
+                ArrayList<CityEntity> citys = new ArrayList<CityEntity>();
+                CityEntity entity;
+
+                while((str = br.readLine()) != null){
+                    strs = str.split(",");
+
+                    entity = new CityEntity();
+                    entity.province = strs[0];
+                    entity.areacode = strs[1];
+                    entity.city = strs[2];
+                    entity.town = strs[4];
+                    entity.city_py = strs[5];
+                    entity.town_py = strs[6];
+                    citys.add(entity);
+                }
+                dbHelper.saveCitys(citys);
+                br.close();
+                isr.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         viewpager = (ViewPager) findViewById(R.id.main_viewpager);
         viewpager.setOffscreenPageLimit(7);
 
@@ -65,7 +105,7 @@ public class MainActivity extends FragmentActivity {
 
         addAlert();
 
-        getCitys();
+//        getCitys();
 
         pagerAdapter = new FragmentPagerAdapter(fragmentManager) {
             @Override

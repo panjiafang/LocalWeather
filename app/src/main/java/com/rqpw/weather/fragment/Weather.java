@@ -24,6 +24,9 @@ import com.rqpw.weather.db.CityPreference;
 import com.rqpw.weather.db.SettingPreference;
 import com.rqpw.weather.db.WeatherPreference;
 import com.rqpw.weather.network.NetWorkUtil;
+import com.rqpw.weather.network.SmartWeatherUrlUtil;
+import com.rqpw.weather.network.WeatherKit;
+import com.rqpw.weather.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,6 +113,10 @@ public class Weather extends Fragment implements View.OnClickListener {
                 e.printStackTrace();
             }
         }
+
+        String url = WeatherKit.getWeatherInfo(WeatherKit.Forecast3d);
+
+        Utils.Log(url);
 
         task = new GetInfoTask();
         task.execute(area);
@@ -202,47 +209,51 @@ public class Weather extends Fragment implements View.OnClickListener {
 
             progressBar_load.setVisibility(View.GONE);
 
+
+
             if(!isCancelled() && result != null){
-                try {
-                    JSONObject obj = new JSONObject(result);
-                    obj = obj.getJSONObject("data");
-                    JSONArray array;
-                    JSONObject temp;
-                    if(obj.has("error")){
+                Utils.Log(result);
 
-                    }
-                    else{
-
-                        weatherPreference.saveWeather(area, obj.toString());
-
-                        if(obj.has("current_condition")){
-                            array = obj.getJSONArray("current_condition");
-                            if(array.length() > 0){
-                                temp = array.getJSONObject(0);
-                                if(settingPreference.isShownAsC())//当前设置为摄氏度
-                                    tv_temp.setText(temp.getString("temp_C")+"°");
-                                else
-                                    tv_temp.setText(temp.getString("temp_F")+"°");
-                                String direct = temp.getString("winddir16Point");
-                                String speed = temp.getString("windspeedKmph");
-                                tv_wind.setText("Wind: " + direct + " " + speed + "Km/h");
-                                String time = temp.getString("localObsDateTime");
-                                tv_time.setText("Last Updated "+ time.substring(time.indexOf(" ")));
-                                array = temp.getJSONArray("weatherDesc");
-                                if(array.length() > 0)
-                                    temp = array.getJSONObject(0);
-                                tv_desc.setText(temp.getString("value"));
-                            }
-                        }
-                        if(obj.has("weather")){
-                            adapter = new Adapter_WeatherListview(getActivity(), obj.getJSONArray("weather"));
-                            listView.setAdapter(adapter);
-                        }
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    JSONObject obj = new JSONObject(result);
+//                    obj = obj.getJSONObject("data");
+//                    JSONArray array;
+//                    JSONObject temp;
+//                    if(obj.has("error")){
+//
+//                    }
+//                    else{
+//
+//                        weatherPreference.saveWeather(area, obj.toString());
+//
+//                        if(obj.has("current_condition")){
+//                            array = obj.getJSONArray("current_condition");
+//                            if(array.length() > 0){
+//                                temp = array.getJSONObject(0);
+//                                if(settingPreference.isShownAsC())//当前设置为摄氏度
+//                                    tv_temp.setText(temp.getString("temp_C")+"°");
+//                                else
+//                                    tv_temp.setText(temp.getString("temp_F")+"°");
+//                                String direct = temp.getString("winddir16Point");
+//                                String speed = temp.getString("windspeedKmph");
+//                                tv_wind.setText("Wind: " + direct + " " + speed + "Km/h");
+//                                String time = temp.getString("localObsDateTime");
+//                                tv_time.setText("Last Updated "+ time.substring(time.indexOf(" ")));
+//                                array = temp.getJSONArray("weatherDesc");
+//                                if(array.length() > 0)
+//                                    temp = array.getJSONObject(0);
+//                                tv_desc.setText(temp.getString("value"));
+//                            }
+//                        }
+//                        if(obj.has("weather")){
+//                            adapter = new Adapter_WeatherListview(getActivity(), obj.getJSONArray("weather"));
+//                            listView.setAdapter(adapter);
+//                        }
+//                    }
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
             }
         }
     }
