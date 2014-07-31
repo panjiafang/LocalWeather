@@ -78,7 +78,7 @@ public class SmartWeatherUrlUtil {
         String date = dateFormat.format(new Date());
         //String type="forecast3d";//"index";//"forecast3d";"observe"
         try {
-            return getInterfaceURL(areaid,type,date);
+            return getInterfaceURL(areaid,"forecast3d",date);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e.fillInStackTrace());
         }
