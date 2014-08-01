@@ -56,7 +56,7 @@ public class WeatherKit {
     /**
      * PRIVATE KEY
      */
-    static final String PRIVATE_KEY = "5a420e_SmartWeatherAPI_1e8f7db";
+    static final String PRIVATE_KEY = "";
 
     /**
      * 固定访问地址
