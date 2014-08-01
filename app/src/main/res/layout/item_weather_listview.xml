@@ -2,70 +2,102 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="wrap_content"
     android:minHeight="48dp"
-    android:paddingLeft="@dimen/activity_margin"
-    android:paddingRight="@dimen/activity_margin">
+    android:paddingLeft="12dp">
 
-    <TextView android:id="@+id/item_weather_date"
+    <TextView android:id="@+id/item_weather_lisview_time"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        android:singleLine="true"
-        android:layout_marginRight="5dp"
-        android:layout_centerVertical="true"/>
+        android:layout_marginRight="15dp"
+        android:text="2014-08-23 周五"
+        android:textSize="15dp"/>
 
-    <com.rqpw.weather.view.MarQueeTextView android:id="@+id/item_weather_desc"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:singleLine="true"
-        android:layout_centerVertical="true"
-        android:gravity="right"
-        android:ellipsize="marquee"
-        android:fadingEdge="none"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:layout_toRightOf="@id/item_weather_date"
-        android:layout_toLeftOf="@+id/item_weather_layout_temp"/>
+        android:layout_toRightOf="@id/item_weather_lisview_time"
+        >
 
-    <LinearLayout android:id="@+id/item_weather_layout_temp"
-        android:layout_width="77dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true">
-        <TextView android:id="@+id/item_weather_temp_low"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:gravity="right"
-            android:singleLine="true"
-            android:text="999"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:text="~"/>
-        <TextView android:id="@+id/item_weather_temp_high"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:gravity="right"
-            android:text="999"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:singleLine="true"
-            android:text="°"/>
-        </LinearLayout>
+        <TableRow android:id="@+id/item_weather_listview_row_day"
+            android:minHeight="48dp"
+            android:gravity="center_vertical">
+            <TextView android:id="@+id/item_weather_tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginRight="20dp"
+                android:text="白天"/>
+
+            <TextView android:id="@+id/item_weather_listview_daydegress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="30°"
+                android:layout_marginRight="20dp"
+                android:singleLine="true"/>
+
+            <TextView android:id="@+id/item_weather_listview_dayexpress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="雷阵雨伴有冰雹"
+                android:layout_marginRight="2dp"
+                android:singleLine="true"/>
+
+            <TextView android:id="@+id/item_weather_listview_daywind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="西北风10级"
+                android:visibility="gone"
+                android:singleLine="true"/>
+        </TableRow>
+
+        <TableRow android:minHeight="48dp"
+            android:gravity="center_vertical">
+            <TextView android:id="@+id/item_weather_tv_night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:layout_marginRight="20dp"
+                android:text="晚间"/>
+
+            <TextView android:id="@+id/item_weather_listview_nightdegress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="30°"
+                android:layout_marginRight="20dp"
+                android:singleLine="true"/>
+
+            <TextView android:id="@+id/item_weather_listview_nightexpress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="雷阵雨"
+                android:layout_marginRight="2dp"
+                android:singleLine="true"/>
+
+            <TextView android:id="@+id/item_weather_listview_nightwind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:text="西北风10级"
+                android:visibility="gone"
+                android:singleLine="true"/>
+        </TableRow>
+
+        </TableLayout>
 
 </RelativeLayout>

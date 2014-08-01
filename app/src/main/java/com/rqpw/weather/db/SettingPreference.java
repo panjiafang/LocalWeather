@@ -12,22 +12,21 @@ public class SettingPreference extends BasePreference {
         file = "setting";
     }
 
-    public boolean isShownAsC(){
+    public int getColor(){
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        boolean degree_c = sharedPreferences.getBoolean("degree_c", false);
-        return degree_c;
+        return sharedPreferences.getInt("color", 0xFF000000);
     }
 
-    public void saveDegreeShow(boolean isC){
+    public void saveColor(int color){
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        editor.putBoolean("degree_c", isC);
+        editor.putInt("color", color);
         editor.commit();
     }
 
     public int getCurrentBG(){
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        return sharedPreferences.getInt("current_bg", 0x11111111);
+        return sharedPreferences.getInt("current_bg", 0x33111111);
     }
 
     public void saveCurrentBG(int color){
@@ -38,12 +37,12 @@ public class SettingPreference extends BasePreference {
     }
 
     public int getDefaultColor(){
-        return 0x11111111;
+        return 0x33111111;
     }
 
     public int getDayListBG(){
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        return sharedPreferences.getInt("daylist_bg", 0x11111111);
+        return sharedPreferences.getInt("daylist_bg", 0x33111111);
     }
 
     public void saveDayListBG(int color){

@@ -3,7 +3,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/weather_layout_app"
     android:padding="@dimen/activity_margin">
 
     <RelativeLayout android:id="@+id/weather_layout_current"
@@ -36,12 +35,19 @@
             android:textSize="25dp"
             android:layout_below="@id/weather_tv_temp"/>
 
-        <TextView android:id="@+id/weather_tv_wind"
+        <TextView android:id="@+id/weather_tv_shidu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:layout_below="@id/weather_tv_desc"/>
+
+        <TextView android:id="@+id/weather_tv_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_below="@id/weather_tv_shidu"/>
 
         <TextView android:id="@+id/weather_tv_time"
             android:layout_width="wrap_content"

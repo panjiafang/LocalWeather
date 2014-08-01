@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.rqpw.weather.MainActivity;
 import com.rqpw.weather.R;
 import com.rqpw.weather.db.CityPreference;
+import com.rqpw.weather.db.DBHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,14 +62,13 @@ public class Adapter_SettingCity extends BaseAdapter {
 
         try {
             final String area = citys.getJSONObject(position).getString("city");
-            final String name = cityPreference.getCityName(area);
-            viewHolder.tv_area.setText(area);
+            final String name = DBHelper.getInstance(context).getCityName(area);
+            viewHolder.tv_area.setVisibility(View.GONE);
             viewHolder.tv_name.setText(name);
             viewHolder.iv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.e("weather", area);
-                    cityPreference.removeCityName(area);
                     cityPreference.removeCity(area);
                     context.updateCitys(area);
                     update();

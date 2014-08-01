@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static String DB_NAME = "weather.db";
-    private static int DB_VERSION = 5;
+    private static int DB_VERSION = 6;
 
     private SQLiteDatabase sqLiteDatabase;
 
@@ -34,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         StringBuffer sb = new StringBuffer();
-        sb.append("create table if not exists city(");
+        sb.append("create table if not exists citys(");
         sb.append("id Integer primary key autoincrement,");
         sb.append("province varchar(50),");
         sb.append("areacode varchar(20),");
@@ -48,7 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.delete("city", null, null);
+        db.delete("citys", null, null);
     }
 
     public void saveCitys(ArrayList<CityEntity> citys){
@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.beginTransaction();
         String sql;
         for (CityEntity entity : citys){
-            sql = "insert into city(province, areacode, city, town, city_py, town_py) values(";
+            sql = "insert into citys(province, areacode, city, town, city_py, town_py) values(";
             sql += "'"+entity.province +"',";
             sql += "'"+entity.areacode+"',";
             sql += "'"+entity.city+"',";
@@ -72,7 +72,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean hasCity(){
         int count;
         sqLiteDatabase = dbHelper.getWritableDatabase();
-        String sql = "select * from city";
+        String sql = "select * from citys";
         Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
         count = cursor.getCount();
         cursor.close();
@@ -85,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<CityEntity> citys = new ArrayList<CityEntity>();
         CityEntity cityEntity;
         sqLiteDatabase = dbHelper.getWritableDatabase();
-        String sql = "select * from city where city_py like '%"+py+"%' or town_py like '%"+py+"%'";
+        String sql = "select * from citys where town_py like '%"+py+"%'";
         Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
         while (cursor.moveToNext()){
             cityEntity = new CityEntity();
@@ -100,5 +100,32 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         sqLiteDatabase.close();
         return citys;
+    }
+
+    public String getAreaCode(String province, String city, String town){
+        String areacode = "";
+        sqLiteDatabase = dbHelper.getWritableDatabase();
+        String sql = "select areacode from citys where province = '"+province+"' and city = '"+city+"' and town = '"+town+"'";
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        while (cursor.moveToNext()){
+            areacode = cursor.getString(cursor.getColumnIndex("areacode"));
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return areacode;
+    }
+
+    public String getCityName(String areacode){
+        String cityname = "";
+        sqLiteDatabase = dbHelper.getWritableDatabase();
+        String sql = "select city, town from citys where areacode = '"+areacode+"'";
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        while (cursor.moveToNext()){
+            String city = cursor.getString(0);
+            cityname = city +"," +cursor.getString(1);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return cityname;
     }
 }

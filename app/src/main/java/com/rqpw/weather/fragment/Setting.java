@@ -39,14 +39,13 @@ import org.json.JSONException;
  */
 public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener{
 
-    private SeekBar seekBar_cred, seekBar_cgreen, seekBar_cblue, seekBar_calpha, seekBar_dred, seekBar_dgreen, seekBar_dblue, seekBar_dalpha, seekBar_ared, seekBar_agreen, seekBar_ablue;
-    private TextView tv_cc, tv_cd, tv_dc, tv_dd, tv_ac, tv_ad;
-    private RelativeLayout bg_ca, bg_da, bg_aa;
+    private SeekBar seekBar_cred, seekBar_cgreen, seekBar_cblue, seekBar_calpha, seekBar_dred, seekBar_dgreen, seekBar_dblue, seekBar_dalpha, seekBar_ared, seekBar_agreen, seekBar_ablue, seekBar_color_red, seekBar_color_green, seekBar_color_blue, seekBar_color_alpha;
+    private TextView tv_cc, tv_cd, tv_dc, tv_dd, tv_ac, tv_ad, tv_color_c, tv_color_d;
+    private RelativeLayout bg_ca, bg_da, bg_aa, bg_color;
 
     private ListView listview;
 
-    private RadioGroup rg_degree, rg_bg;
-    private RadioButton rb_c, rb_f, rb_color, rb_pic;
+    private RadioButton rb_color, rb_pic;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,6 +57,12 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
     }
 
     private void init(View view) {
+
+        seekBar_color_red = (SeekBar) view.findViewById(R.id.setting_seekbar_color_red);
+        seekBar_color_green = (SeekBar) view.findViewById(R.id.setting_seekbar_color_green);
+        seekBar_color_blue = (SeekBar) view.findViewById(R.id.setting_seekbar_color_blue);
+        seekBar_color_alpha = (SeekBar) view.findViewById(R.id.setting_seekbar_color_alpha);
+
         seekBar_cred = (SeekBar) view.findViewById(R.id.setting_seekbar_red);
         seekBar_cgreen = (SeekBar) view.findViewById(R.id.setting_seekbar_green);
         seekBar_cblue = (SeekBar) view.findViewById(R.id.setting_seekbar_blue);
@@ -78,15 +83,14 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
         tv_dd = (TextView) view.findViewById(R.id.setting_tv_ddwbg_effect);
         tv_ac = (TextView) view.findViewById(R.id.setting_tv_acwbg_effect);
         tv_ad = (TextView) view.findViewById(R.id.setting_tv_adwbg_effect);
+        tv_color_c = (TextView) view.findViewById(R.id.setting_tv_ccwcolor_effect);
+        tv_color_d = (TextView) view.findViewById(R.id.setting_tv_cdwcolor_effect);
 
         bg_ca = (RelativeLayout) view.findViewById(R.id.setting_layout_cwbg);
         bg_da = (RelativeLayout) view.findViewById(R.id.setting_layout_dwbg);
         bg_aa = (RelativeLayout) view.findViewById(R.id.setting_layout_awbg);
+        bg_color = (RelativeLayout) view.findViewById(R.id.setting_layout_color);
 
-        rg_degree = (RadioGroup) view.findViewById(R.id.setting_rg_degree);
-        rg_bg = (RadioGroup) view.findViewById(R.id.setting_rg_appbg);
-        rb_c = (RadioButton) view.findViewById(R.id.setting_rb_c);
-        rb_f = (RadioButton) view.findViewById(R.id.setting_rb_f);
         rb_color = (RadioButton) view.findViewById(R.id.setting_rb_bg_color);
         rb_pic = (RadioButton) view.findViewById(R.id.setting_rb_bg_photo);
 
@@ -108,6 +112,11 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
             }
         }
 
+        seekBar_color_red.setOnSeekBarChangeListener(this);
+        seekBar_color_green.setOnSeekBarChangeListener(this);
+        seekBar_color_blue.setOnSeekBarChangeListener(this);
+        seekBar_color_alpha.setOnSeekBarChangeListener(this);
+
         seekBar_cred.setOnSeekBarChangeListener(this);
         seekBar_cgreen.setOnSeekBarChangeListener(this);
         seekBar_cblue.setOnSeekBarChangeListener(this);
@@ -121,21 +130,18 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
         seekBar_ablue.setOnSeekBarChangeListener(this);
 
         SettingPreference settingPreference = new SettingPreference(getActivity());
-        boolean shownAsC = settingPreference.isShownAsC();
         int current_bg = settingPreference.getCurrentBG();
         int daylist_bg = settingPreference.getDayListBG();
         String app_pic_path = settingPreference.getAppBGPicPath();
-        int app_bg =settingPreference.getAppBG();
+        int app_bg = settingPreference.getAppBG();
+        int color = settingPreference.getColor();
 
-        if(shownAsC)
-            rb_c.setChecked(true);
-        else
-            rb_f.setChecked(true);
         if(app_pic_path.equals("")) {
             rb_color.setChecked(true);
             bg_ca.setBackgroundColor(app_bg);
             bg_da.setBackgroundColor(app_bg);
             bg_aa.setBackgroundColor(app_bg);
+            bg_color.setBackgroundColor(app_bg);
         }
         else {
             rb_pic.setChecked(true);
@@ -145,15 +151,33 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
             bg_ca.setBackgroundDrawable(bitmapDrawable);
             bg_da.setBackgroundDrawable(bitmapDrawable);
             bg_aa.setBackgroundDrawable(bitmapDrawable);
+            bg_color.setBackgroundDrawable(bitmapDrawable);
         }
 
         tv_ac.setBackgroundColor(current_bg);
+        tv_cc.setBackgroundColor(current_bg);
         tv_dc.setBackgroundColor(current_bg);
-        tv_ac.setBackgroundColor(current_bg);
+        tv_color_c.setBackgroundColor(current_bg);
 
         tv_ad.setBackgroundColor(daylist_bg);
         tv_cd.setBackgroundColor(daylist_bg);
         tv_dd.setBackgroundColor(daylist_bg);
+        tv_color_d.setBackgroundColor(daylist_bg);
+
+        tv_ac.setTextColor(color);
+        tv_cc.setTextColor(color);
+        tv_dc.setTextColor(color);
+        tv_color_c.setTextColor(color);
+        tv_ad.setTextColor(color);
+        tv_cd.setTextColor(color);
+        tv_dd.setTextColor(color);
+        tv_color_d.setTextColor(color);
+
+
+        seekBar_color_red.setProgress(Color.red(color));
+        seekBar_color_green.setProgress(Color.green(color));
+        seekBar_color_blue.setProgress(Color.blue(color));
+        seekBar_color_alpha.setProgress(Color.alpha(color));
 
         seekBar_cred.setProgress(Color.red(current_bg));
         seekBar_cgreen.setProgress(Color.green(current_bg));
@@ -190,6 +214,7 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
                 bg_ca.setBackgroundColor(color);
                 bg_da.setBackgroundColor(color);
                 bg_aa.setBackgroundColor(color);
+                bg_color.setBackgroundColor(color);
             }
         });
     }
@@ -205,6 +230,7 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
             bg_ca.setBackgroundDrawable(bitmapDrawable);
             bg_da.setBackgroundDrawable(bitmapDrawable);
             bg_aa.setBackgroundDrawable(bitmapDrawable);
+            bg_color.setBackgroundDrawable(bitmapDrawable);
 
             SettingPreference settingPreference = new SettingPreference(getActivity());
             settingPreference.saveAppBGPicPath(picUri.toString());
@@ -222,17 +248,30 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
         tv_cc.setBackgroundColor(color);
         tv_dc.setBackgroundColor(color);
         tv_ac.setBackgroundColor(color);
+        tv_color_c.setBackgroundColor(color);
 
         color = Color.argb(seekBar_dalpha.getProgress(), seekBar_dred.getProgress(), seekBar_dgreen.getProgress(), seekBar_dblue.getProgress());
         tv_cd.setBackgroundColor(color);
         tv_dd.setBackgroundColor(color);
         tv_ad.setBackgroundColor(color);
+        tv_color_d.setBackgroundColor(color);
+
+        color = Color.argb(seekBar_color_alpha.getProgress(), seekBar_color_red.getProgress(), seekBar_color_green.getProgress(), seekBar_color_blue.getProgress());
+        tv_cd.setTextColor(color);
+        tv_dd.setTextColor(color);
+        tv_ad.setTextColor(color);
+        tv_color_d.setTextColor(color);
+        tv_cc.setTextColor(color);
+        tv_dc.setTextColor(color);
+        tv_ac.setTextColor(color);
+        tv_color_c.setTextColor(color);
 
         if(rb_color.isChecked()){
             color = Color.argb(255, seekBar_ared.getProgress(), seekBar_agreen.getProgress(), seekBar_ablue.getProgress());
             bg_ca.setBackgroundColor(color);
             bg_da.setBackgroundColor(color);
             bg_aa.setBackgroundColor(color);
+            bg_color.setBackgroundColor(color);
         }
 
     }
@@ -248,11 +287,11 @@ public class Setting extends Fragment implements SeekBar.OnSeekBarChangeListener
     @Override
     public void onDetach() {
         SettingPreference settingPreference = new SettingPreference(getActivity());
-        settingPreference.saveAppBG(Color.argb(255, seekBar_ared.getProgress(), seekBar_agreen.getProgress(), seekBar_ablue.getProgress()));
+        if(rb_color.isChecked())
+            settingPreference.saveAppBG(Color.argb(255, seekBar_ared.getProgress(), seekBar_agreen.getProgress(), seekBar_ablue.getProgress()));
         settingPreference.saveCurrentBG(Color.argb(seekBar_calpha.getProgress(), seekBar_cred.getProgress(), seekBar_cgreen.getProgress(), seekBar_cblue.getProgress()));
         settingPreference.saveDayListBG(Color.argb(seekBar_dalpha.getProgress(), seekBar_dred.getProgress(), seekBar_dgreen.getProgress(), seekBar_dblue.getProgress()));
-
-        settingPreference.saveDegreeShow(rb_c.isChecked());
+        settingPreference.saveColor(Color.argb(seekBar_color_alpha.getProgress(), seekBar_color_red.getProgress(), seekBar_color_green.getProgress(), seekBar_color_blue.getProgress()));
 
         ((MainActivity)getActivity()).updateUI();
 

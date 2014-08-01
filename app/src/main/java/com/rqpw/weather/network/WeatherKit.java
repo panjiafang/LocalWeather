@@ -56,7 +56,7 @@ public class WeatherKit {
     /**
      * PRIVATE KEY
      */
-    static final String PRIVATE_KEY = "";
+    static final String PRIVATE_KEY = "5a420e_SmartWeatherAPI_1e8f7db";
 
     /**
      * 固定访问地址
@@ -118,8 +118,8 @@ public class WeatherKit {
      * @param areacode
      * @return
      */
-    public static String getWeatherInfo(String areacode) {
-        return getWeatherInfo(areacode, new Date());
+    public static String getWeatherInfo(String areacode, String type) {
+        return getWeatherInfo(areacode, type, new Date());
     }
 
     /**
@@ -129,9 +129,9 @@ public class WeatherKit {
      * @param date
      * @return
      */
-    public static String getWeatherInfo(String areacode, Date date) {
+    public static String getWeatherInfo(String areacode, String type,  Date date) {
         String dateStr = getDate(date);
-        String url = String.format(REQUEST_URL, areacode, Forecast3d, dateStr, APP_ID, getKey(areacode, Forecast3d, dateStr));
+        String url = String.format(REQUEST_URL, areacode, type, dateStr, APP_ID, getKey(areacode, type, dateStr));
         System.out.println("weather_url:::::::::::::::::::::" + url);
         return url;
     }

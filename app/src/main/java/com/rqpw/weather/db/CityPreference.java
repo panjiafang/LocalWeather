@@ -100,22 +100,4 @@ public class CityPreference extends BasePreference {
         return sharedPreferences.getString("citys", "");
     }
 
-    public void addCityName(String key, String name){
-        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.putString(key, name);
-        editor.commit();
-    }
-
-    public void removeCityName(String key){
-        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.remove(key);
-        editor.commit();
-    }
-
-    public String getCityName(String key){
-        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(key, null);
-    }
 }

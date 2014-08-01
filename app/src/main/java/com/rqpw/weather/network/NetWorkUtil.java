@@ -32,12 +32,12 @@ public class NetWorkUtil {
 
         HttpPost post;
             post = new HttpPost(url);
-        post.setHeader("Content-type","application/json; charset=utf-8");
+//        post.setHeader("Content-type","application/json; charset=utf-8");
 
         try {
             HttpResponse response = client.execute(post);
             if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-                String result = EntityUtils.toString(response.getEntity());
+                String result = EntityUtils.toString(response.getEntity(), "utf-8");
 
                 System.out.println(result);
                 return result;
@@ -57,8 +57,8 @@ public class NetWorkUtil {
         return null;
     }
 
-    public static String getWeatherInfo(String q){
-        String url = SmartWeatherUrlUtil.getInterfaceURL("101010100", "observe");
+    public static String getWeatherInfo(String areacode, String type){
+        String url = WeatherKit.getWeatherInfo(areacode, type);
         return Conn2Server(url);
     }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -9,8 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/adView">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,35 +18,130 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:background="@drawable/setting_item_bg">
 
-                <TextView
+                <TextView android:id="@+id/setting_tv_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Degree Shown As"
+                    android:text="字体颜色"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/weather_cur_size"
-                    android:layout_centerVertical="true"
-                    />
+                    android:layout_marginBottom="5dp"
+                    android:textSize="@dimen/weather_cur_size"/>
 
-                <RadioGroup android:id="@+id/setting_rg_degree"
-                    android:layout_width="wrap_content"
+                <RelativeLayout android:id="@+id/setting_layout_color"
+                    android:layout_width="80dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/setting_tv_color"
+                    android:background="#11111111">
+                    <TextView android:id="@+id/setting_tv_ccwcolor_effect"
+                        android:layout_width="60dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="自我\n天气"
+                        android:gravity="center"
+                        android:background="#22222222"/>
+
+                    <TextView android:id="@+id/setting_tv_cdwcolor_effect"
+                        android:layout_width="60dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#22222222"
+                        android:text="自我\n天气"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true">
-                    <RadioButton android:id="@+id/setting_rb_c"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="°C"
-                        android:layout_marginRight="20dp"/>
+                    android:orientation="vertical"
+                    android:layout_below="@id/setting_tv_color"
+                    android:layout_toLeftOf="@id/setting_layout_color"
+                    >
 
-                    <RadioButton android:id="@+id/setting_rb_f"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="°F"/>
-                </RadioGroup>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="红色"
+                            android:gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:textSize="@dimen/weather_cur_size"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar android:id="@+id/setting_seekbar_color_red"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="绿色"
+                            android:gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:textSize="@dimen/weather_cur_size"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar android:id="@+id/setting_seekbar_color_green"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="蓝色"
+                            android:gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:textSize="@dimen/weather_cur_size"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar android:id="@+id/setting_seekbar_color_blue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="透明度"
+                            android:gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:textSize="@dimen/weather_cur_size"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar android:id="@+id/setting_seekbar_color_alpha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:max="255" />
+                    </LinearLayout>
+                </LinearLayout>
 
             </RelativeLayout>
 
@@ -62,7 +155,7 @@
                 <TextView android:id="@+id/setting_tv_cwbg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Current Weather Backgroung"
+                    android:text="当前天气背景"
                     android:textColor="@color/black"
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/weather_cur_size"/>
@@ -78,6 +171,8 @@
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:background="#22222222"/>
 
                     <TextView android:id="@+id/setting_tv_cdwbg_effect"
@@ -87,6 +182,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#22222222"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:layout_alignParentBottom="true"/>
                     </RelativeLayout>
 
@@ -106,7 +203,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Red"
+                            android:text="红色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -125,7 +222,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Green"
+                            android:text="绿色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -144,7 +241,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Blue"
+                            android:text="蓝色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -163,7 +260,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Alpha"
+                            android:text="透明度"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -187,7 +284,7 @@
                 <TextView android:id="@+id/setting_tv_dwbg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DayList Weather Backgroung"
+                    android:text="天气列表背景"
                     android:textColor="@color/black"
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/weather_cur_size"/>
@@ -203,6 +300,8 @@
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:background="#22222222"/>
 
                     <TextView android:id="@+id/setting_tv_ddwbg_effect"
@@ -212,6 +311,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#22222222"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
 
@@ -231,7 +332,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Red"
+                            android:text="红色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -250,7 +351,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Green"
+                            android:text="绿色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -269,7 +370,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Blue"
+                            android:text="蓝色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -288,7 +389,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Alpha"
+                            android:text="透明度"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -312,7 +413,7 @@
                 <TextView android:id="@+id/setting_tv_bg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Application Backgroung"
+                    android:text="应用背景"
                     android:textColor="@color/black"
                     android:layout_marginBottom="5dp"
                     android:textSize="@dimen/weather_cur_size"/>
@@ -328,6 +429,8 @@
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:background="#22222222"/>
 
                     <TextView android:id="@+id/setting_tv_adwbg_effect"
@@ -337,6 +440,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#22222222"
+                        android:text="自我\n天气"
+                        android:gravity="center"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
                 <LinearLayout
@@ -355,7 +460,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Red"
+                            android:text="红色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -374,7 +479,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Green"
+                            android:text="绿色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -393,7 +498,7 @@
                         <TextView
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Blue"
+                            android:text="蓝色"
                             android:gravity="right"
                             android:layout_marginRight="5dp"
                             android:textSize="@dimen/weather_cur_size"
@@ -415,13 +520,13 @@
                         <RadioButton android:id="@+id/setting_rb_bg_color"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Color"
+                            android:text="单色"
                             android:layout_marginRight="20dp"/>
 
                         <RadioButton android:id="@+id/setting_rb_bg_photo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Picture"/>
+                            android:text="图片"/>
                     </RadioGroup>
                 </LinearLayout>
 
@@ -430,7 +535,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="City Management"
+                android:text="城市管理"
                 android:textColor="@color/black"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
@@ -445,12 +550,4 @@
 
     </ScrollView>
 
-    <com.google.ads.AdView android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adUnitId="a153ce34db73d8a"
-        ads:adSize="BANNER"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:loadAdOnCreate="true"/>
 </RelativeLayout>

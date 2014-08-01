@@ -1,6 +1,18 @@
 package com.rqpw.weather.util;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.rqpw.weather.db.DBHelper;
+import com.rqpw.weather.db.WeatherExpress;
+import com.rqpw.weather.db.WindPreferrence;
+import com.rqpw.weather.entity.CityEntity;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 /**
  * Created by Pan Jiafang on 2014/7/23.
@@ -9,6 +21,48 @@ public class Utils {
 
     public static void Log(String message){
         Log.e("pw", message);
+    }
+
+    public static void initData(Context context){
+        try {
+            DBHelper dbHelper = DBHelper.getInstance(context);
+            if(!dbHelper.hasCity()){
+                Utils.Log("read assets file");
+                InputStream is = context.getAssets().open("result.csv");
+                InputStreamReader isr = new InputStreamReader(is, "gbk");
+                BufferedReader br = new BufferedReader(isr);
+                String str;
+                String[] strs;
+                ArrayList<CityEntity> citys = new ArrayList<CityEntity>();
+                CityEntity entity;
+
+                while((str = br.readLine()) != null){
+                    strs = str.split(",");
+
+                    entity = new CityEntity();
+                    entity.province = strs[0];
+                    entity.areacode = strs[1];
+                    entity.city = strs[2];
+                    entity.town = strs[4];
+                    entity.city_py = strs[5];
+                    entity.town_py = strs[6];
+                    citys.add(entity);
+                }
+                dbHelper.saveCitys(citys);
+                br.close();
+                isr.close();
+
+
+                //添加其他数据
+                WeatherExpress express = new WeatherExpress(context);
+                express.init();
+
+                WindPreferrence windPreferrence = new WindPreferrence(context);
+                windPreferrence.init();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String unicodeToUtf8(String theString) {
