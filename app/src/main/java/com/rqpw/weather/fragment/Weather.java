@@ -95,22 +95,6 @@ public class Weather extends Fragment implements View.OnClickListener {
         layout_current.setBackgroundColor(curbg);
         listView.setBackgroundColor(daylistbg);
 
-        String app_bg_path = settingPreference.getAppBGPicPath();
-        if(app_bg_path.equals("")){
-            int appbg = settingPreference.getAppBG();
-            layout_app.setBackgroundColor(appbg);
-        }
-        else{
-            Uri picUri = Uri.parse(app_bg_path);
-            try {
-                InputStream picIS = getActivity().getContentResolver().openInputStream(picUri);
-                Drawable bitmapDrawable = BitmapDrawable.createFromStream(picIS, null);
-                layout_app.setBackgroundDrawable(bitmapDrawable);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-
         task = new GetInfoTask();
         task.execute(area);
         new GetLocationTask().execute(area);
@@ -126,22 +110,6 @@ public class Weather extends Fragment implements View.OnClickListener {
         int daylistbg = settingPreference.getDayListBG();
         layout_current.setBackgroundColor(curbg);
         listView.setBackgroundColor(daylistbg);
-
-        String app_bg_path = settingPreference.getAppBGPicPath();
-        if(app_bg_path.equals("")){
-            int appbg = settingPreference.getAppBG();
-            layout_app.setBackgroundColor(appbg);
-        }
-        else{
-            Uri picUri = Uri.parse(app_bg_path);
-            try {
-                InputStream picIS = getActivity().getContentResolver().openInputStream(picUri);
-                Drawable bitmapDrawable = BitmapDrawable.createFromStream(picIS, null);
-                layout_app.setBackgroundDrawable(bitmapDrawable);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
 
         try {
             String weather = weatherPreference.getWeather(area);

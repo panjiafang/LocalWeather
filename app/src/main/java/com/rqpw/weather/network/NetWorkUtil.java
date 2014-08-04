@@ -13,6 +13,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Created by Pan Jiafang on 2014/7/14.
@@ -58,11 +59,13 @@ public class NetWorkUtil {
     }
 
     public static String getWeatherInfo(String q){
+        q = q.replace(" ", "%20");
         String url = "http://api.worldweatheronline.com/free/v1/weather.ashx?q="+q+"&format=json&extra=localObsTime&num_of_days=5&key=ca88095da564000cba0ba6d0356dcd0c8cecc061";
         return Conn2Server(url);
     }
 
     public static String getLocation(String q){
+        q = q.replace(" ", "%20");
         String url = "http://api.worldweatheronline.com/free/v1/search.ashx?q="+q+"&format=json&key=ca88095da564000cba0ba6d0356dcd0c8cecc061";
         return Conn2Server(url);
     }

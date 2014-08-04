@@ -3,12 +3,16 @@ package com.rqpw.weather;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +25,7 @@ import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.rqpw.weather.db.CityPreference;
+import com.rqpw.weather.db.SettingPreference;
 import com.rqpw.weather.fragment.Setting;
 import com.rqpw.weather.fragment.Weather;
 import com.rqpw.weather.service.ClearService;
@@ -30,6 +35,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -105,6 +112,22 @@ public class MainActivity extends FragmentActivity {
 
         viewpager.setAdapter(pagerAdapter);
 
+        SettingPreference settingPreference = new SettingPreference(this);
+        String app_bg_path = settingPreference.getAppBGPicPath();
+        if(app_bg_path.equals("")){
+            int appbg = settingPreference.getAppBG();
+            viewpager.setBackgroundColor(appbg);
+        }
+        else{
+            Uri picUri = Uri.parse(app_bg_path);
+            try {
+                InputStream picIS = this.getContentResolver().openInputStream(picUri);
+                Drawable bitmapDrawable = BitmapDrawable.createFromStream(picIS, null);
+                viewpager.setBackgroundDrawable(bitmapDrawable);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -173,6 +196,23 @@ public class MainActivity extends FragmentActivity {
             if(weather.isAdded())
                 weather.updateUI();
         }
+
+        SettingPreference settingPreference = new SettingPreference(this);
+        String app_bg_path = settingPreference.getAppBGPicPath();
+        if(app_bg_path.equals("")){
+            int appbg = settingPreference.getAppBG();
+            viewpager.setBackgroundColor(appbg);
+        }
+        else{
+            Uri picUri = Uri.parse(app_bg_path);
+            try {
+                InputStream picIS = this.getContentResolver().openInputStream(picUri);
+                Drawable bitmapDrawable = BitmapDrawable.createFromStream(picIS, null);
+                viewpager.setBackgroundDrawable(bitmapDrawable);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void updateCitys(String area){
@@ -185,7 +225,7 @@ public class MainActivity extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         final MenuItem menuItem = menu.findItem(R.id.action_add);
-        AddingActionView actionView = (AddingActionView) menuItem.getActionView();
+        AddingActionView actionView = (AddingActionView) MenuItemCompat.getActionView(menuItem);
         actionview_et = actionView.et;
         actionview_tv = actionView.tv;
         actionview_tv.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +235,7 @@ public class MainActivity extends FragmentActivity {
                 if(str.trim().length() != 0){
                     addCity(str);
                     actionview_et.setText("");
-                    menuItem.collapseActionView();
+                    MenuItemCompat.collapseActionView(menuItem);
                     InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromInputMethod(actionview_et.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
