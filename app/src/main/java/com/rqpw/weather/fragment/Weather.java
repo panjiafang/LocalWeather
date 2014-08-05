@@ -86,6 +86,7 @@ public class Weather extends Fragment implements View.OnClickListener {
         layout_current = (RelativeLayout) view.findViewById(R.id.weather_layout_current);
         progressBar = (ProgressBar) view.findViewById(R.id.weather_area_progressbar);
         progressBar_load = (ProgressBar) view.findViewById(R.id.weather_progressbar_load);
+        progressBar_load.setTag("");
 
         settingPreference = new SettingPreference(getActivity());
         weatherPreference = new WeatherPreference(getActivity());
@@ -141,6 +142,7 @@ public class Weather extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v == iv_sync){
             progressBar_load.setVisibility(View.VISIBLE);
+            progressBar_load.setTag("");
             task = new GetCurInfoTask();
             task.execute(area);
 
@@ -160,7 +162,10 @@ public class Weather extends Fragment implements View.OnClickListener {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            progressBar_load.setVisibility(View.GONE);
+            if(!progressBar_load.getTag().equals(""))
+                progressBar_load.setVisibility(View.GONE);
+
+            progressBar_load.setTag("done");
 
             if(!isCancelled() && result != null){
                 Utils.Log(result);
@@ -211,6 +216,11 @@ public class Weather extends Fragment implements View.OnClickListener {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+
+            if(!progressBar_load.getTag().equals(""))
+                progressBar_load.setVisibility(View.GONE);
+
+            progressBar_load.setTag("done");
 
             if(!isCancelled() && result != null){
                 Utils.Log(result);
