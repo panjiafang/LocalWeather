@@ -20,7 +20,7 @@
         android:layout_height="24dp"
         android:text="添加"
         android:layout_margin="5dp"
-        android:textColor="@android:color/secondary_text_dark_nodisable"
+        android:textColor="@color/black"
         android:gravity="center"
         android:background="@drawable/actionbar_btn_add"
         android:layout_centerVertical="true"

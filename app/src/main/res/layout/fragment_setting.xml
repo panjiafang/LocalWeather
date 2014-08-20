@@ -555,7 +555,7 @@
     <com.google.ads.AdView android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adUnitId="a153ce34db73d8a"
+        ads:adUnitId="a153e04ceb17b1b"
         ads:adSize="BANNER"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

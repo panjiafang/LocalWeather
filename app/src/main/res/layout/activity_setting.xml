@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_margin"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="背景设置"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/setting_btn_cur"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/setting_btn_bg"
+            android:text="当前天气"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            />
+
+        <Button android:id="@+id/setting_btn_daylist"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/setting_btn_bg"
+            android:text="天气列表"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            />
+
+        <Button android:id="@+id/setting_btn_app"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/setting_btn_bg"
+            android:text="应用"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            />
+
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分享"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/setting_btn_weixin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/setting_btn_bg"
+            android:text="微信"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            />
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推荐"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/setting_btn_tuijian"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/setting_btn_bg"
+            android:text="精彩推荐"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

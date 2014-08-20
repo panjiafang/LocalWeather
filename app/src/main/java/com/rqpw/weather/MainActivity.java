@@ -68,8 +68,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Utils.initData(this);
-
         viewpager = (ViewPager) findViewById(R.id.main_viewpager);
         viewpager.setOffscreenPageLimit(7);
 
@@ -241,7 +239,7 @@ public class MainActivity extends FragmentActivity {
             public void onClick(View v) {
                 String str = actionview_et.getText().toString();
                 String[] strs = str.split(",");
-                if(str.trim().length() != 0){
+                if(str.trim().length() != 0 && strs.length > 2){
                     str = DBHelper.getInstance(MainActivity.this).getAreaCode(strs[0], strs[1], strs[2]);
                     if(!str.equals("")){
                         addCity(str);
@@ -249,6 +247,8 @@ public class MainActivity extends FragmentActivity {
                         MenuItemCompat.collapseActionView(menuItem);
                     }
                 }
+                else
+                    Toast.makeText(MainActivity.this, "请输入城市拼音首字母,从结果中选择城市", Toast.LENGTH_SHORT).show();
             }
         });
         return true;
@@ -258,24 +258,17 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            if(fragmentManager.findFragmentByTag("setting") == null){
-                fragmentTransaction = fragmentManager.beginTransaction();
-                Setting fragment = new Setting();
-                fragmentTransaction.addToBackStack("setting");
-                fragmentTransaction.add(R.id.main_layout, fragment, "setting").commit();
-                return true;
-            }
+//            if(fragmentManager.findFragmentByTag("setting") == null){
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                Setting fragment = new Setting();
+//                fragmentTransaction.addToBackStack("setting");
+//                fragmentTransaction.add(R.id.main_layout, fragment, "setting").commit();
+//                return true;
+//            }
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        Fragment fragment;
-        if((fragment = fragmentManager.findFragmentByTag("setting")) != null) {
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.remove(fragment).commit();
-        }
-        super.onBackPressed();
-    }
 }
