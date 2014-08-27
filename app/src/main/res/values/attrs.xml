@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="com.five.adwoad.AdwoAdView">
+        <attr name="isTesting" format="boolean" />
+    </declare-styleable>
+</resources>

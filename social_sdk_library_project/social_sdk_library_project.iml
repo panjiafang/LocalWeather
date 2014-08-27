@@ -63,8 +63,13 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.3.12" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.3.12" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.3.12" level="project" />
+    <orderEntry type="library" exported="" name="mframework" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_shake" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_scrshot" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Core-2.3.12" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />

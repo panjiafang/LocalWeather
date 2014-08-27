@@ -14,6 +14,10 @@ import com.rqpw.weather.view.CustomerizeAppBgDialog;
 import com.rqpw.weather.view.CustomerizeDialog;
 import com.umeng.analytics.MobclickAgent;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 /**
  * Created by Pan Jiafang on 2014/8/15.
  */
@@ -107,8 +111,36 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
             CityManagerDialog dialog = new CityManagerDialog(this);
             dialog.show();
         }
-        else if(v == btn_cur){
+        else if(v == btn_weixin){
+//            Platform weixin = ShareSDK.getPlatform(this, Platform.);
+            Platform[] p = ShareSDK.getPlatformList();
 
         }
+    }
+
+    public void showOnekeyshare(String platform, boolean silent) {
+        OnekeyShare oks = new OnekeyShare();
+
+        // 分享时Notification的图标和文字
+        oks.setNotification(R.drawable.laucher,
+                getString(R.string.app_name));
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+        oks.setTitle(getString(R.string.share));
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("自我天气,凸显自我");
+//        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//        oks.setImagePath(MainActivity.TEST_IMAGE);
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://app.mi.com/detail/69770");
+        // 是否直接分享（true则直接分享）
+        oks.setSilent(silent);
+        // 指定分享平台，和slient一起使用可以直接分享到指定的平台
+        if (platform != null) {
+            oks.setPlatform(platform);
+        }
+        // 去除注释可通过OneKeyShareCallback来捕获快捷分享的处理结果
+//        oks.setCallback(new OneKeyShareCallback());
+
+        oks.show(this);
     }
 }
