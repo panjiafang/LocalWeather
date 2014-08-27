@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity {
 
         addAlert();
 
-        getCitys();
+//        getCitys();
 
         pagerAdapter = new FragmentPagerAdapter(fragmentManager) {
             @Override
@@ -133,6 +133,10 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
 
         MobclickAgent.onResume(this);
+
+        getCitys();
+        if(pagerAdapter != null)
+            pagerAdapter.notifyDataSetChanged();
 
         updateUI();
     }

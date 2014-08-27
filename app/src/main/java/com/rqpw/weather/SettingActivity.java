@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.rqpw.weather.view.CityManagerDialog;
 import com.rqpw.weather.view.CustomerizeAppBgDialog;
 import com.rqpw.weather.view.CustomerizeDialog;
 import com.umeng.analytics.MobclickAgent;
@@ -19,7 +20,7 @@ import com.umeng.analytics.MobclickAgent;
 public class SettingActivity extends ActionBarActivity implements View.OnClickListener {
 
     private RelativeLayout layout_bg;
-    private Button btn_cur, btn_daylist, btn_app, btn_weixin, btn_tuijian;
+    private Button btn_cur, btn_daylist, btn_app, btn_weixin, btn_tuijian, btn_city;
 
     private CustomerizeAppBgDialog appDialog;
     @Override
@@ -51,12 +52,14 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
         btn_cur = (Button) findViewById(R.id.setting_btn_cur);
         btn_daylist = (Button) findViewById(R.id.setting_btn_daylist);
         btn_app = (Button) findViewById(R.id.setting_btn_app);
+        btn_city = (Button) findViewById(R.id.setting_btn_city);
         btn_weixin = (Button) findViewById(R.id.setting_btn_weixin);
         btn_tuijian = (Button) findViewById(R.id.setting_btn_tuijian);
 
         btn_cur.setOnClickListener(this);
         btn_daylist.setOnClickListener(this);
         btn_app.setOnClickListener(this);
+        btn_city.setOnClickListener(this);
         btn_weixin.setOnClickListener(this);
         btn_tuijian.setOnClickListener(this);
 
@@ -100,8 +103,9 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
             appDialog = new CustomerizeAppBgDialog(this);
             appDialog.show();
         }
-        else if(v == btn_cur){
-
+        else if(v == btn_city){
+            CityManagerDialog dialog = new CityManagerDialog(this);
+            dialog.show();
         }
         else if(v == btn_cur){
 

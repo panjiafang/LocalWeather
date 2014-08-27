@@ -1,5 +1,6 @@
 package com.rqpw.weather.adapter;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +22,11 @@ import org.json.JSONException;
  */
 public class Adapter_SettingCity extends BaseAdapter {
 
-    private MainActivity context;
+    private Activity context;
     private JSONArray citys;
     private CityPreference cityPreference;
 
-    public Adapter_SettingCity(MainActivity context, JSONArray citys){
+    public Adapter_SettingCity(Activity context, JSONArray citys){
         this.context = context;
         this.citys = citys;
         cityPreference = new CityPreference(context);
@@ -70,7 +71,6 @@ public class Adapter_SettingCity extends BaseAdapter {
                 public void onClick(View v) {
                     Log.e("weather", area);
                     cityPreference.removeCity(area);
-                    context.updateCitys(area);
                     update();
                     notifyDataSetChanged();
                 }
