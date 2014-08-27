@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MenuItemCompat;
@@ -18,31 +17,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
 import com.rqpw.weather.db.CityPreference;
 import com.rqpw.weather.db.DBHelper;
 import com.rqpw.weather.db.SettingPreference;
 import com.rqpw.weather.entity.CityEntity;
-import com.rqpw.weather.fragment.Setting;
 import com.rqpw.weather.fragment.Weather;
-import com.rqpw.weather.service.ClearService;
-import com.rqpw.weather.util.Utils;
 import com.rqpw.weather.view.AddingActionView;
+import com.umeng.analytics.MobclickAgent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -59,7 +51,6 @@ public class MainActivity extends FragmentActivity {
     private ArrayList<String> fragments;
 
     private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
 
     private HashMap<String, Weather> fragmentMap;
 
@@ -138,27 +129,46 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        MobclickAgent.onResume(this);
+
+        updateUI();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        EasyTracker.getInstance(this).activityStart(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        EasyTracker.getInstance(this).activityStart(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        MobclickAgent.onPause(this);
     }
 
     public void addAlert(){
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-        calendar.set(Calendar.HOUR_OF_DAY, 13);
-        calendar.set(Calendar.MINUTE, 8);
-        calendar.set(Calendar.SECOND, 0);
-        Intent intent = new Intent(this, ClearService.class);
-        PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        calendar.set(Calendar.HOUR_OF_DAY, 1);
+        calendar.set(Calendar.MINUTE, 1);
+        calendar.set(Calendar.SECOND, 1);
+        Intent intent = new Intent("com.rqpw.weather.cn.clear");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY*7, pendingIntent);
+        alarmManager.cancel(pendingIntent);
+
+        if(calendar.getTimeInMillis() < System.currentTimeMillis())
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis() + AlarmManager.INTERVAL_DAY*7, AlarmManager.INTERVAL_DAY*7, pendingIntent);
+        else
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY*7, pendingIntent);
     }
 
     public void addCity(String city){

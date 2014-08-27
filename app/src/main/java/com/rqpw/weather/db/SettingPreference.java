@@ -12,17 +12,17 @@ public class SettingPreference extends BasePreference {
         file = "setting";
     }
 
-    public int getColor(){
-        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        return sharedPreferences.getInt("color", 0xFF000000);
-    }
-
-    public void saveColor(int color){
-        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.putInt("color", color);
-        editor.commit();
-    }
+//    public int getColor(){
+//        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+//        return sharedPreferences.getInt("color", 0xFF000000);
+//    }
+//
+//    public void saveColor(int color){
+//        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+//        editor = sharedPreferences.edit();
+//        editor.putInt("color", color);
+//        editor.commit();
+//    }
 
     public int getCurrentBG(){
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
@@ -33,6 +33,17 @@ public class SettingPreference extends BasePreference {
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putInt("current_bg", color);
+        editor.commit();
+    }
+
+    public int getCurrentFont(){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("current_font", 0xFF000000);
+    }
+    public void saveCurrentFont(int color){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putInt("current_font", color);
         editor.commit();
     }
 
@@ -49,6 +60,17 @@ public class SettingPreference extends BasePreference {
         sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putInt("daylist_bg", color);
+        editor.commit();
+    }
+
+    public int getDayListFont(){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("daylist_font", 0xFF000000);
+    }
+    public void saveDayListFont(int color){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putInt("daylist_font", color);
         editor.commit();
     }
 

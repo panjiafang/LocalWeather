@@ -5,3 +5,5 @@
 /build
 
 app/app-release.apk
+social_sdk_library_project/build/
+build/

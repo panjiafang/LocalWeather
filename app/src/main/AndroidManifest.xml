@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -30,11 +32,19 @@
         </activity>
 
 
+        <receiver android:name=".service.ClearReceiver">
+            <intent-filter>
+                <action android:name="com.rqpw.weather.cn.clear"></action>
+            </intent-filter>
+        </receiver>
 
-        <service android:name="com.rqpw.weather.service.ClearService"></service>
-        <activity
-            android:name="com.google.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+
+        <!-- 友盟AppKey， 需要替换成你自己的 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="53f71acffd98c585c6003612" />
+        <meta-data android:value="xiaomi" android:name="UMENG_CHANNEL"/>
     </application>
 
 </manifest>

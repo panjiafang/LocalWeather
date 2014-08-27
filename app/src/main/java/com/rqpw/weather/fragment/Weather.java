@@ -95,7 +95,7 @@ public class Weather extends Fragment implements View.OnClickListener {
 
         int curbg = settingPreference.getCurrentBG();
         int daylistbg = settingPreference.getDayListBG();
-        int color = settingPreference.getColor();
+        int color = settingPreference.getCurrentFont();
 
         tv_temp.setTextColor(color);
         tv_desc.setTextColor(color);
@@ -121,7 +121,7 @@ public class Weather extends Fragment implements View.OnClickListener {
         settingPreference = new SettingPreference(getActivity());
         int curbg = settingPreference.getCurrentBG();
         int daylistbg = settingPreference.getDayListBG();
-        int color = settingPreference.getColor();
+        int color = settingPreference.getCurrentFont();
 
         tv_temp.setTextColor(color);
         tv_desc.setTextColor(color);

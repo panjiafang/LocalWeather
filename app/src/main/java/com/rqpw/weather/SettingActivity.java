@@ -1,7 +1,6 @@
 package com.rqpw.weather;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.rqpw.weather.view.CustomerizeAppBgDialog;
 import com.rqpw.weather.view.CustomerizeDialog;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by Pan Jiafang on 2014/8/15.
@@ -19,6 +20,8 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
 
     private RelativeLayout layout_bg;
     private Button btn_cur, btn_daylist, btn_app, btn_weixin, btn_tuijian;
+
+    private CustomerizeAppBgDialog appDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,20 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        MobclickAgent.onPause(this);
     }
 
     private void init() {
@@ -46,6 +63,22 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == Activity.RESULT_OK){
+            if(appDialog != null && appDialog.isShowing()){
+                appDialog.setImage(data);
+            }
+        }
+        else{
+            if(appDialog != null && appDialog.isShowing()){
+                appDialog.setImage(null);
+            }
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home){
             finish();
@@ -56,14 +89,16 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v == btn_cur){
-            CustomerizeDialog dialog = new CustomerizeDialog(this);
+            CustomerizeDialog dialog = new CustomerizeDialog(this, CustomerizeDialog.TYPE_CUR);
             dialog.show();
         }
-        else if(v == btn_cur){
-
+        else if(v == btn_daylist){
+            CustomerizeDialog dialog = new CustomerizeDialog(this, CustomerizeDialog.TYPE_DAY);
+            dialog.show();
         }
-        else if(v == btn_cur){
-
+        else if(v == btn_app){
+            appDialog = new CustomerizeAppBgDialog(this);
+            appDialog.show();
         }
         else if(v == btn_cur){
 

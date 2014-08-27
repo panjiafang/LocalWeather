@@ -109,7 +109,7 @@ public class Adapter_WeatherListview extends BaseAdapter {
             else
                 viewHolder.layout_day.setVisibility(View.VISIBLE);
 
-            int color = settingPreference.getColor();
+            int color = settingPreference.getDayListFont();
 
             calendar = Calendar.getInstance();
             try {

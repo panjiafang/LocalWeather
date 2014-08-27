@@ -21,8 +21,8 @@
 
         <Button android:id="@+id/setting_btn_cur"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/setting_btn_bg"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
             android:text="当前天气"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
@@ -31,8 +31,8 @@
 
         <Button android:id="@+id/setting_btn_daylist"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/setting_btn_bg"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
             android:text="天气列表"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
@@ -43,8 +43,8 @@
 
         <Button android:id="@+id/setting_btn_app"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/setting_btn_bg"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
             android:text="应用"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
@@ -56,10 +56,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="城市管理"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/setting_btn_city"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
+            android:text="城市管理"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="16dp"
+            android:textSize="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="分享"
         android:textColor="@color/black"
         android:textSize="18dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,8 +96,8 @@
 
         <Button android:id="@+id/setting_btn_weixin"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/setting_btn_bg"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
             android:text="微信"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
@@ -86,7 +113,7 @@
         android:text="推荐"
         android:textColor="@color/black"
         android:textSize="18dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -96,8 +123,8 @@
 
         <Button android:id="@+id/setting_btn_tuijian"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/setting_btn_bg"
+            android:layout_height="42dp"
+            android:background="@drawable/setting_btn_bg2"
             android:text="精彩推荐"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"

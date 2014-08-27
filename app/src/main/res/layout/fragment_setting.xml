@@ -7,557 +7,557 @@
     android:background="@color/white"
     android:id="@+id/setting_layout_bg">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/adView">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/adView">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_margin">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:padding="@dimen/activity_margin">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/setting_item_bg">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:paddingBottom="15dp"-->
+                <!--android:background="@drawable/setting_item_bg">-->
 
-                <TextView android:id="@+id/setting_tv_color"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="字体颜色"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="@dimen/weather_cur_size"/>
+                <!--<TextView android:id="@+id/setting_tv_color"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="字体颜色"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:textSize="@dimen/weather_cur_size"/>-->
 
-                <RelativeLayout android:id="@+id/setting_layout_color"
-                    android:layout_width="80dp"
-                    android:layout_height="120dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/setting_tv_color"
-                    android:background="#11111111">
-                    <TextView android:id="@+id/setting_tv_ccwcolor_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:background="#22222222"/>
+                <!--<RelativeLayout android:id="@+id/setting_layout_color"-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="120dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_below="@id/setting_tv_color"-->
+                    <!--android:background="#11111111">-->
+                    <!--<TextView android:id="@+id/setting_tv_ccwcolor_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:background="#22222222"/>-->
 
-                    <TextView android:id="@+id/setting_tv_cdwcolor_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="#22222222"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:layout_alignParentBottom="true"/>
-                </RelativeLayout>
+                    <!--<TextView android:id="@+id/setting_tv_cdwcolor_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:background="#22222222"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_alignParentBottom="true"/>-->
+                <!--</RelativeLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_below="@id/setting_tv_color"
-                    android:layout_toLeftOf="@id/setting_layout_color"
-                    >
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_below="@id/setting_tv_color"-->
+                    <!--android:layout_toLeftOf="@id/setting_layout_color"-->
+                    <!-->-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="红色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_color_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255"/>
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="红色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_color_red"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255"/>-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="绿色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_color_green"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255"/>
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="绿色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_color_green"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255"/>-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="蓝色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_color_blue"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="蓝色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_color_blue"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="透明度"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_color_alpha"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
-                </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="透明度"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_color_alpha"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/setting_item_bg">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:paddingBottom="15dp"-->
+                <!--android:background="@drawable/setting_item_bg">-->
 
-                <TextView android:id="@+id/setting_tv_cwbg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="当前天气背景"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="@dimen/weather_cur_size"/>
+                <!--<TextView android:id="@+id/setting_tv_cwbg"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="当前天气背景"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:textSize="@dimen/weather_cur_size"/>-->
 
-                <RelativeLayout android:id="@+id/setting_layout_cwbg"
-                    android:layout_width="80dp"
-                    android:layout_height="120dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/setting_tv_cwbg"
-                    android:background="#11111111">
-                    <TextView android:id="@+id/setting_tv_ccwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:background="#22222222"/>
+                <!--<RelativeLayout android:id="@+id/setting_layout_cwbg"-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="120dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_below="@id/setting_tv_cwbg"-->
+                    <!--android:background="#11111111">-->
+                    <!--<TextView android:id="@+id/setting_tv_ccwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:background="#22222222"/>-->
 
-                    <TextView android:id="@+id/setting_tv_cdwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="#22222222"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:layout_alignParentBottom="true"/>
-                    </RelativeLayout>
+                    <!--<TextView android:id="@+id/setting_tv_cdwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:background="#22222222"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_alignParentBottom="true"/>-->
+                    <!--</RelativeLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_below="@id/setting_tv_cwbg"
-                    android:layout_toLeftOf="@id/setting_layout_cwbg"
-                    >
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_below="@id/setting_tv_cwbg"-->
+                    <!--android:layout_toLeftOf="@id/setting_layout_cwbg"-->
+                    <!-->-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="红色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255"/>
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="红色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_red"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255"/>-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="绿色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_green"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255"/>
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="绿色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_green"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255"/>-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="蓝色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_blue"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="蓝色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_blue"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="透明度"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_alpha"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
-                </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="透明度"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_alpha"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/setting_item_bg">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:paddingBottom="15dp"-->
+                <!--android:background="@drawable/setting_item_bg">-->
 
-                <TextView android:id="@+id/setting_tv_dwbg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="天气列表背景"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="@dimen/weather_cur_size"/>
+                <!--<TextView android:id="@+id/setting_tv_dwbg"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="天气列表背景"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:textSize="@dimen/weather_cur_size"/>-->
 
-                <RelativeLayout android:id="@+id/setting_layout_dwbg"
-                    android:layout_width="80dp"
-                    android:layout_height="120dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/setting_tv_dwbg"
-                    android:background="#11111111">
-                    <TextView android:id="@+id/setting_tv_dcwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:background="#22222222"/>
+                <!--<RelativeLayout android:id="@+id/setting_layout_dwbg"-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="120dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_below="@id/setting_tv_dwbg"-->
+                    <!--android:background="#11111111">-->
+                    <!--<TextView android:id="@+id/setting_tv_dcwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:background="#22222222"/>-->
 
-                    <TextView android:id="@+id/setting_tv_ddwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="#22222222"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:layout_alignParentBottom="true"/>
-                </RelativeLayout>
+                    <!--<TextView android:id="@+id/setting_tv_ddwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:background="#22222222"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_alignParentBottom="true"/>-->
+                <!--</RelativeLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_below="@id/setting_tv_dwbg"
-                    android:layout_toLeftOf="@id/setting_layout_dwbg"
-                    >
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_below="@id/setting_tv_dwbg"-->
+                    <!--android:layout_toLeftOf="@id/setting_layout_dwbg"-->
+                    <!-->-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="红色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_dred"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="红色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_dred"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="绿色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_dgreen"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="绿色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_dgreen"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="蓝色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_dblue"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="蓝色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_dblue"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="透明度"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_dalpha"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255"/>
-                    </LinearLayout>
-                </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="透明度"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_dalpha"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255"/>-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/setting_item_bg">
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="15dp"-->
+                <!--android:paddingBottom="15dp"-->
+                <!--android:background="@drawable/setting_item_bg">-->
 
-                <TextView android:id="@+id/setting_tv_bg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="应用背景"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="@dimen/weather_cur_size"/>
+                <!--<TextView android:id="@+id/setting_tv_bg"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="应用背景"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:textSize="@dimen/weather_cur_size"/>-->
 
-                <RelativeLayout android:id="@+id/setting_layout_awbg"
-                    android:layout_width="80dp"
-                    android:layout_height="120dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/setting_tv_bg"
-                    android:background="#11111111">
-                    <TextView android:id="@+id/setting_tv_acwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:background="#22222222"/>
+                <!--<RelativeLayout android:id="@+id/setting_layout_awbg"-->
+                    <!--android:layout_width="80dp"-->
+                    <!--android:layout_height="120dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_below="@id/setting_tv_bg"-->
+                    <!--android:background="#11111111">-->
+                    <!--<TextView android:id="@+id/setting_tv_acwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:background="#22222222"/>-->
 
-                    <TextView android:id="@+id/setting_tv_adwbg_effect"
-                        android:layout_width="60dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="#22222222"
-                        android:text="自我\n天气"
-                        android:gravity="center"
-                        android:layout_alignParentBottom="true"/>
-                </RelativeLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_below="@id/setting_tv_bg"
-                    android:layout_toLeftOf="@id/setting_layout_awbg"
-                    >
+                    <!--<TextView android:id="@+id/setting_tv_adwbg_effect"-->
+                        <!--android:layout_width="60dp"-->
+                        <!--android:layout_height="45dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginBottom="10dp"-->
+                        <!--android:background="#22222222"-->
+                        <!--android:text="自我\n天气"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_alignParentBottom="true"/>-->
+                <!--</RelativeLayout>-->
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_below="@id/setting_tv_bg"-->
+                    <!--android:layout_toLeftOf="@id/setting_layout_awbg"-->
+                    <!-->-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="红色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_ared"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="红色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_ared"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="绿色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_agreen"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="绿色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_agreen"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
 
-                        <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="蓝色"
-                            android:gravity="right"
-                            android:layout_marginRight="5dp"
-                            android:textSize="@dimen/weather_cur_size"
-                            android:layout_gravity="center_vertical"/>
-                        <SeekBar android:id="@+id/setting_seekbar_ablue"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:max="255" />
-                    </LinearLayout>
+                        <!--<TextView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="蓝色"-->
+                            <!--android:gravity="right"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:textSize="@dimen/weather_cur_size"-->
+                            <!--android:layout_gravity="center_vertical"/>-->
+                        <!--<SeekBar android:id="@+id/setting_seekbar_ablue"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:max="255" />-->
+                    <!--</LinearLayout>-->
 
-                    <RadioGroup android:id="@+id/setting_rg_appbg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_horizontal"
-                        android:layout_alignParentRight="true">
-                        <RadioButton android:id="@+id/setting_rb_bg_color"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="单色"
-                            android:layout_marginRight="20dp"/>
+                    <!--<RadioGroup android:id="@+id/setting_rg_appbg"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:layout_alignParentRight="true">-->
+                        <!--<RadioButton android:id="@+id/setting_rb_bg_color"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="单色"-->
+                            <!--android:layout_marginRight="20dp"/>-->
 
-                        <RadioButton android:id="@+id/setting_rb_bg_photo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="图片"/>
-                    </RadioGroup>
-                </LinearLayout>
+                        <!--<RadioButton android:id="@+id/setting_rb_bg_photo"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="图片"/>-->
+                    <!--</RadioGroup>-->
+                <!--</LinearLayout>-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="城市管理"
-                android:textColor="@color/black"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
-                android:textSize="@dimen/weather_cur_size"/>
-            <ListView android:id="@+id/setting_listview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:listSelector="@null"
-                android:background="@null"></ListView>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="城市管理"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textSize="@dimen/weather_cur_size"/>-->
+            <!--<ListView android:id="@+id/setting_listview"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:listSelector="@null"-->
+                <!--android:background="@null"></ListView>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-    </ScrollView>
+    <!--</ScrollView>-->
 
-    <com.google.ads.AdView android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adUnitId="a153e04ceb17b1b"
-        ads:adSize="BANNER"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:loadAdOnCreate="true"/>
+    <!--<com.google.ads.AdView android:id="@+id/adView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--ads:adUnitId="a153e04ceb17b1b"-->
+        <!--ads:adSize="BANNER"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--ads:loadAdOnCreate="true"/>-->
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.rqpw.weather.util.Utils;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by Pan Jiafang on 2014/8/14.
@@ -38,5 +39,19 @@ public class SplashActivity extends Activity {
             }
         }.execute("");
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        MobclickAgent.onPause(this);
     }
 }
