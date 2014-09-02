@@ -7,24 +7,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
 import com.rqpw.weather.view.CityManagerDialog;
 import com.rqpw.weather.view.CustomerizeAppBgDialog;
 import com.rqpw.weather.view.CustomerizeDialog;
+import com.rqpw.weather.view.ScoreDialog;
+import com.rqpw.weather.view.WeixinSettingDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
+import net.youmi.android.offers.OffersManager;
 
 /**
  * Created by Pan Jiafang on 2014/8/15.
  */
 public class SettingActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private RelativeLayout layout_bg;
-    private Button btn_cur, btn_daylist, btn_app, btn_weixin, btn_tuijian, btn_city;
+    private Button btn_cur, btn_daylist, btn_app, btn_weixin, btn_tuijian, btn_city, btn_score;
 
     private CustomerizeAppBgDialog appDialog;
     @Override
@@ -59,6 +57,7 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
         btn_city = (Button) findViewById(R.id.setting_btn_city);
         btn_weixin = (Button) findViewById(R.id.setting_btn_weixin);
         btn_tuijian = (Button) findViewById(R.id.setting_btn_tuijian);
+        btn_score = (Button) findViewById(R.id.setting_btn_score);
 
         btn_cur.setOnClickListener(this);
         btn_daylist.setOnClickListener(this);
@@ -66,7 +65,7 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
         btn_city.setOnClickListener(this);
         btn_weixin.setOnClickListener(this);
         btn_tuijian.setOnClickListener(this);
-
+        btn_score.setOnClickListener(this);
     }
 
     @Override
@@ -112,35 +111,17 @@ public class SettingActivity extends ActionBarActivity implements View.OnClickLi
             dialog.show();
         }
         else if(v == btn_weixin){
-//            Platform weixin = ShareSDK.getPlatform(this, Platform.);
-            Platform[] p = ShareSDK.getPlatformList();
-
+            WeixinSettingDialog dialog = new WeixinSettingDialog(this);
+            dialog.show();
         }
+        else if(v == btn_tuijian){
+            OffersManager.getInstance(this).showOffersWall();
+        }
+        else if(v == btn_score){
+            ScoreDialog dialog = new ScoreDialog(this);
+            dialog.show();
+        }
+
     }
 
-    public void showOnekeyshare(String platform, boolean silent) {
-        OnekeyShare oks = new OnekeyShare();
-
-        // 分享时Notification的图标和文字
-        oks.setNotification(R.drawable.laucher,
-                getString(R.string.app_name));
-        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-        oks.setTitle(getString(R.string.share));
-        // text是分享文本，所有平台都需要这个字段
-        oks.setText("自我天气,凸显自我");
-//        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-//        oks.setImagePath(MainActivity.TEST_IMAGE);
-        // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://app.mi.com/detail/69770");
-        // 是否直接分享（true则直接分享）
-        oks.setSilent(silent);
-        // 指定分享平台，和slient一起使用可以直接分享到指定的平台
-        if (platform != null) {
-            oks.setPlatform(platform);
-        }
-        // 去除注释可通过OneKeyShareCallback来捕获快捷分享的处理结果
-//        oks.setCallback(new OneKeyShareCallback());
-
-        oks.show(this);
-    }
 }

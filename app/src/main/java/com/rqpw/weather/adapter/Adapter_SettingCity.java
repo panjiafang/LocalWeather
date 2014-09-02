@@ -1,6 +1,7 @@
 package com.rqpw.weather.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,9 @@ public class Adapter_SettingCity extends BaseAdapter {
                     cityPreference.removeCity(area);
                     update();
                     notifyDataSetChanged();
+                    Intent intent = new Intent(MainActivity.ACTION_DELETECITY);
+                    intent.putExtra("city", area);
+                    context.sendBroadcast(intent);
                 }
             });
         } catch (JSONException e) {

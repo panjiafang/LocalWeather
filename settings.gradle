@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':app2'
 include ':social_sdk_library_project'

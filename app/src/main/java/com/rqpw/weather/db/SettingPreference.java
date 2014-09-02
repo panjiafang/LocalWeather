@@ -97,4 +97,16 @@ public class SettingPreference extends BasePreference {
         editor.putString("app_bg_pic", path);
         editor.commit();
     }
+
+    public boolean getShare2Weixin(){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("share2weixin", true);
+    }
+
+    public void setShare2Weixin(boolean value){
+        sharedPreferences = context.getSharedPreferences(file, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putBoolean("share2weixin", value);
+        editor.commit();
+    }
 }
